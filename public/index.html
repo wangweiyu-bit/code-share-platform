@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>代码分享平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>代码分享平台</h1>
+            <nav>
+                <a href="index.html">首页</a>
+                <a href="codes.html">代码中心</a>
+                <span id="userInfo"></span>
+                <a href="login.html" id="loginBtn">登录</a>
+                <a href="#" id="logoutBtn" style="display:none;">退出</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h2>欢迎来到代码分享平台</h2>
+                <p>分享代码，学习成长</p>
+                <div class="cta-buttons">
+                    <a href="codes.html" class="btn btn-primary">浏览代码</a>
+                    <a href="register.html" class="btn btn-secondary">立即注册</a>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="feature-card">
+                    <h3>📚 丰富的代码库</h3>
+                    <p>涵盖多种编程语言和技术栈</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 权限管理</h3>
+                    <p>根据会员等级访问不同内容</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⬇️ 便捷下载</h3>
+                    <p>一键复制代码到剪贴板</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 代码分享平台. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // 检查登录状态
+        const user = getUser();
+        if (user) {
+            document.getElementById('userInfo').textContent = `欢迎, ${user.name}`;
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'inline';
+        }
+
+        document.getElementById('logoutBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            logout();
+            location.reload();
+        });
+    </script>
+</body>
+</html>
