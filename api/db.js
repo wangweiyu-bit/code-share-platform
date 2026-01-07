@@ -5,7 +5,8 @@ class Database {
       {
         id: 1,
         username: 'admin',
-        password: '$2a$10$rQJ5cKmH0qYXqYqYqYqYqOqYqYqYqYqYqYqYqYqYqYqYqYqYqYqYq', // admin123
+       password: 'admin123', // 明文密码
+
         name: '管理员',
         phone: 'admin',
         role: 'admin',
@@ -137,3 +138,4 @@ class Database {
 }
 
 module.exports = new Database();
+
