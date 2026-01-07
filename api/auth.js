@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const db = require('./db');
 
-// 简化版密码验证（生产环境应使用 bcrypt）
 function verifyPassword(input, stored) {
-  return input === 'admin123' && stored.includes('admin123');
+  // 直接比较密码
+  return input === stored;
 }
+
 
 // 登录
 router.post('/login', (req, res) => {
@@ -58,3 +59,4 @@ router.post('/register', (req, res) => {
 });
 
 module.exports = router;
+
